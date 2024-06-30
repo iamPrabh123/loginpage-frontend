@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="loginpage.css" />
+  </head>
+  <body>
+    <div id="login-container">
+      <img src="dp.avif" alt="" class="profile" />
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="Email id"><h4>Email ID:</h4></label>
+          <input type="email" id="email" name="Email-id" required />
+          <br />
+        </div>
+        <div class="input-group">
+          <label for="password"><h4>Password:</h4></label>
+          <input type="password" id="password" name="password" required />
+          <br />
+          <input type="checkbox" id="togglePassword" />Show Password
+        </div>
+        <p type="reset" id="forgot" >forgot password? </p> 
+      </form>
+    </div>
+    <button type="submit" id="login-button" class="btn" onclick="username()">LOGIN</button>
+
+    <script src="loginpage.js"></script>
+  </body>
+</html>

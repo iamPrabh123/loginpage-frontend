@@ -1,0 +1,102 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient( red, blue);
+}
+
+#login-container {
+  background-color :chocolate;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  border-radius: 30px;
+  position: relative;
+  height: 490px;
+
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.btn {
+  width: 300px;
+  background-color: #91a0a7;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  height: 60px;
+  margin-top: 430px;
+  align-self: flex-end;
+  position: absolute;
+  margin-bottom: 50px;
+}
+
+.btn:hover {
+  background-color: green;
+}
+
+/*.error {
+  color: red;
+  margin-top: 10px;
+  display: none;
+  text-align: center;
+}*/
+
+.profile {
+  position:relative;
+  left: 30%;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(0, 0, 255, 0.5); /* Blue with transparency */
+  border-radius: 50%;
+}
+
+#email{
+  width: 300px;
+  margin-left: 50px;
+  background-color: lightgreen;
+
+}
+
+#password {
+  background-color: lightgreen;
+  width: 300px;
+  margin-left: 50px;
+}
+
+#togglePassword{
+  width: 20px;
+  height: 20px;
+  margin-top: 15px;
+  gap: 3px;
+}
+
+#forgot{
+  border: none;
+  margin: 0px 300px ;
+  font-style:oblique;
+}
+
+#forgot:hover{
+  cursor: pointer;
+}
+
+
+.full{
+  width: 100px;
+  height: 400px;
+}
