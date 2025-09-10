@@ -1,49 +1,53 @@
 const form = document.getElementById("loginForm");
-const emailInput = document.getElementById("email");
-const passwordInput = document.getElementById("password");
-const button = document.getElementById("login-button");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
 const togglePasswordCheckbox = document.getElementById("togglePassword");
+const responseMessage = document.getElementById("responseMessage");
 
-const userEmails = ["user1@example.com", "user2@example.com", "user3@example.com"];
-const userPasswords = ["password1", "password2", "password3"];
+// Handle form submit
+form.addEventListener("submit", async function (e) {
+  e.preventDefault(); // Prevent page reload
 
-// Function to check if email and password match
-function authenticateUser(email, password) {
-  // Loop through the userEmails array
-  for (let i = 0; i < userEmails.length; i++) {
-    // Check if the current email matches the input email
-    if (userEmails[i] === email) {
-      // Check if the corresponding password matches the input password
-      if (userPasswords[i] === password) {
-        return true; // Password matched
-      } else {
-        return false; // Password does not match
-      }
-    }
+  const emailValue = email.value.trim();
+  const passwordValue = password.value.trim();
+
+  if (!emailValue || !passwordValue) {
+    responseMessage.textContent = "Please fill in all fields.";
+    responseMessage.style.color = "red";
+    return;
   }
-  return false; // Email not found
-}
 
-togglePasswordCheckbox.addEventListener("change", function () {
-  if (passwordInput.type === "password") {
-    passwordInput.type = "text";
-  } else {
-    passwordInput.type = "password";
+  try {
+    // 👇 Call your backend API (replace URL with your backend endpoint)
+    const res = await fetch("http://localhost:3000/api/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: emailValue,
+        password: passwordValue,
+      }),
+    });
+
+    const data = await res.json();
+    console.log(data);
+
+    if (res.ok) {
+      responseMessage.textContent = data.message || "Signup successful!";
+      responseMessage.style.color = "green";
+      form.reset();
+    } else {
+      responseMessage.textContent = data.message || "Something went wrong!";
+      responseMessage.style.color = "red";
+    }
+  } catch (err) {
+    responseMessage.textContent = "Server error. Try again later.";
+    responseMessage.style.color = "red";
   }
 });
 
-function username() {
-  const email = emailInput.value;
-  const password = passwordInput.value;
-
-  if (authenticateUser(email, password)) {
-    alert("Login successful!");
-  } else {
-    alert("Login failed");
-  }
-}
-
-document.getElementById("forgot").addEventListener("click" , function() {
-  window.open("forgot-pass.html", "_blank");
-})
-
+// Toggle password visibility
+togglePasswordCheckbox.addEventListener("change", function () {
+  password.type = password.type === "password" ? "text" : "password";
+});

@@ -8,24 +8,23 @@
   </head>
   <body>
     <div id="login-container">
-      <img src="dp.avif" alt="" class="profile" />
       <form id="loginForm">
         <div class="input-group">
-          <label for="Email id"><h4>Email ID:</h4></label>
-          <input type="email" id="email" name="Email-id" required />
-          <br />
+          <label for="email"><h4>Enter Email:</h4></label>
+          <input type="email" id="email" name="email-id" required />
         </div>
         <div class="input-group">
-          <label for="password"><h4>Password:</h4></label>
+          <label for="password"><h4>Create Password:</h4></label>
           <input type="password" id="password" name="password" required />
-          <br />
-          <input type="checkbox" id="togglePassword" />Show Password
         </div>
-        <p type="reset" id="forgot" >forgot password? </p> 
+
+        <input id="togglePassword" type="checkbox" /> Show Password
+
+        <!-- moved inside form -->
+        <button type="submit" id="signup" class="btn">SIGN UP</button>
+        <p id="responseMessage"></p>
       </form>
     </div>
-    <button type="submit" id="login-button" class="btn" onclick="username()">LOGIN</button>
-
     <script src="loginpage.js"></script>
   </body>
 </html>
